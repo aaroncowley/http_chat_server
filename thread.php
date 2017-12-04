@@ -29,7 +29,7 @@ require_once('init.php');
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
   <head></head>
   <body>
-  <?
+  <?php
     if(mysqli_num_rows($res)){
       echo '<div id="contents">';
       while($row = mysqli_fetch_array($res)){
