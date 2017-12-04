@@ -8,7 +8,7 @@ require_once('init.php');
   $currtime = date("YmdHis",time());
 
   /* maintains this user's state as active. */
-  mysqli_query("UPDATE acow_users SET LastUpdate = '" . $currtime . "'
+  mysqli_query($dbhandle,"UPDATE acow_users SET LastUpdate = '" . $currtime . "'
                 WHERE UserID = " . $_SESSION['acow_UserID']);
 
   /* grab any messages posted since the last time we checked.
@@ -22,10 +22,9 @@ require_once('init.php');
           WHERE Posted >= '" . $_SESSION['acow_Prevtime'] . "' 
             AND Posted < '" . $currtime . "'
           ORDER BY Posted";
-  $res = mysqli_query($sql);
+  $res = mysqli_query($dbhandle,$sql);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
   <head></head>
   <body>
