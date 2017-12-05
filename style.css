@@ -1,28 +1,33 @@
 /* CSS Document */
 body {
-    font:12px arial;
+    font:12px serif;
     color: #222;
+    background:#e35f5f;
     text-align:center;
-    padding:35px; }
+    padding:0px;
+    height:auto; }
   
 form, p, span {
     margin:0;
     padding:0; }
   
-input { font:12px arial; }
+input {
+    font:12px serif; }
   
 a {
-    color:#0000FF;
+    color:#000000;
     text-decoration:none; }
   
-    a:hover { text-decoration:underline; }
+    a:hover { color:white; }
   
 #wrapper, #loginform {
     margin:0 auto;
     padding-bottom:25px;
-    background:#EBF4FB;
-    width:504px;
-    border:1px solid #ACD8F0; }
+    background:#A6A09D;
+    background-image: url("https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia4.s-nbcnews.com%2Fj%2Fmsnbc%2Fcomponents%2Fvideo%2F201609%2Fa_ov_pepe_160928.nbcnews-ux-1080-600.jpg&f=1");
+    width:auto;
+    height:auto;
+     }
   
 #loginform { padding-top:18px; }
   
@@ -34,12 +39,15 @@ a {
     margin-bottom:25px;
     padding:10px;
     background:#fff;
-    height:270px;
-    width:430px;
+    height:500px;
+    width:800px;
     border:1px solid #ACD8F0;
     overflow:auto; }
   
 #usermsg {
+    font: arial 12px;
+    color: #000000;
+    background:#ffffff;
     width:395px;
     border:1px solid #ACD8F0; }
   
