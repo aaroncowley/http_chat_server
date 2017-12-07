@@ -18,13 +18,13 @@ a {
     color:#000000;
     text-decoration:none; }
   
-    a:hover { color:white; }
+    a:hover { color:red; }
   
 #wrapper, #loginform {
     margin:0 auto;
     padding-bottom:25px;
     background:#A6A09D;
-    background-image: url("https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia4.s-nbcnews.com%2Fj%2Fmsnbc%2Fcomponents%2Fvideo%2F201609%2Fa_ov_pepe_160928.nbcnews-ux-1080-600.jpg&f=1");
+    background-image: url("https://images.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FzHCMd7DteVM6k%2F200.gif&f=1");
     width:auto;
     height:auto;
      }
@@ -57,7 +57,10 @@ a {
   
 #menu { padding:12.5px 25px 12.5px 25px; }
   
-.welcome { float:left; }
+.welcome { 
+    color:red;
+    float:left;
+}
   
 .logout { float:right; }
   
