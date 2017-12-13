@@ -8,6 +8,9 @@ function loginForm(){
         <p>Please enter your name to continue:</p>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" />
+        <p> pick a chatroom </p>
+        <input type="radio" name="room" value="1"> 1<br>
+  	<input type="radio" name="room" value="2"> 2<br>
         <input type="submit" name="enter" id="enter" value="Enter" />
     </form>
     </div>
@@ -18,6 +21,10 @@ if(isset($_POST['enter'])){
     if($_POST['name'] != ""){
         $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
     }
+    if($_POST['room'] != ''){
+        $_SESSION['room'] = $_POST['room'];
+    }
+    
     else{
         echo '<span class="error">Please type in a name</span>';
     }
@@ -49,18 +56,24 @@ else{
 ?> 
 <div id="wrapper">
     <div id="menu">
-    <p class="welcome">Welcome, <b><?php echo $_SESSION['name'];?></b></p>
+    <p class="welcome">Welcome, <b><?php echo $_SESSION['name'];?> to chatroom <?php echo $_SESSION['room'];?></b></p>
         <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
         <div style="clear:both"></div>
     </div>
      
     <div id="chatbox"><?php
-    if(file_exists("log.html") && filesize("log.html") > 0){
+    if(file_exists("log.html") && filesize("log.html") > 0 && $_SESSION['room'] == '1'){
         $handle = fopen("log.html", "r");
         $contents = fread($handle, filesize("log.html"));
         fclose($handle);
         echo $contents;
-    }    
+    } 
+    else if(file_exists("log2.html") && filesize("log2.html") > 0 && $_SESSION['room'] == '2'){
+        $handle = fopen("log.html", "r");
+        $contents = fread($handle, filesize("log.html"));
+        fclose($handle);
+        echo $contents;
+    }   
         
     ?></div>
      
@@ -89,7 +102,7 @@ $(document).ready(function(){
 function loadLog(){
     var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request
     $.ajax({
-        url: "log.html",
+        url: "<?php if($_SESSION['room'] == '2'){echo "log2.html";}else{echo "log.html";}?>",
         cache: false,
         success: function(html){
             $("#chatbox").html(html); //Insert chat log into the #chatbox div
